@@ -13,3 +13,22 @@ code {
 }
 
 
+h1 {text-align: center;}
+
+table {
+  width: 100rem;
+  text-align: center;
+  margin: auto;
+  border-collapse: separate;
+  text-transform: uppercase;
+}
+
+tr:nth-child(odd) {
+  background: lightgray;
+}
+
+tr:first-child {
+  background: gray;
+  color: whitesmoke;
+  font-size: 1.25rem;
+}
