@@ -21,6 +21,7 @@ table {
   margin: auto;
   border-collapse: separate;
   text-transform: uppercase;
+  padding: 1rem;
 }
 
 tr:nth-child(odd) {
@@ -31,4 +32,15 @@ tr:first-child {
   background: gray;
   color: whitesmoke;
   font-size: 1.25rem;
+}
+
+ul, li {
+  list-style:none;
+  margin: 0;
+  padding: 0.05rem 0;
+}
+
+tr:hover {
+  color: whitesmoke;
+  background: rgb(114, 114, 114);
 }
