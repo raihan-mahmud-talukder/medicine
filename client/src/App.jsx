@@ -1,11 +1,9 @@
-import { Medication } from "./Components/Medication"
+import { Header } from "./Components/Header"
 
 export const App = () => {
   return (
     <>
-      <h1>Medication CRUD</h1>
-      
-      <Medication />
+        <Header />
     </>
   )
 }
