@@ -2,16 +2,17 @@ import axios from 'axios'
 import { useState } from 'react'
 
 export const AddProduct = () => {
-    const [genericName, setGenericName] = useState([])
-    const [brandName, setBrandName] = useState()
-    const [companyName, setCompanyName] = useState()
-    const [dosageForm, setdosageForm] = useState()
-    const [strength, setStrength] = useState([])
-    const [packSize, setPackSize] = useState()
-    const [unitPrice, setUnitPrice] = useState()
-    const [therapeuticClass, setTherapeuticClass] = useState()
+    const [genericName, setGenericName] = useState('')
+    const [brandName, setBrandName] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    const [dosageForm, setdosageForm] = useState('')
+    const [strength, setStrength] = useState('')
+    const [packSize, setPackSize] = useState('')
+    const [unitPrice, setUnitPrice] = useState('')
+    const [therapeuticClass, setTherapeuticClass] = useState('')
 
     const addProduct = async event => {
+        event.preventDefault()
         const newProduct = {
             genericName, brandName, companyName, dosageForm, strength, packSize, unitPrice, therapeuticClass
         }
@@ -31,7 +32,7 @@ export const AddProduct = () => {
                 id='genericName'
                 value={genericName}
                 onChange={event => setGenericName(event.target.value)}
-            /><br />
+            />
             <label htmlFor='brandName'>Brand Name: </label>
             <input type='text'
                 placeholder='Brand Name'
@@ -39,7 +40,7 @@ export const AddProduct = () => {
                 id='brandName'
                 value={brandName}
                 onChange={event => setBrandName(event.target.value)}
-            /><br />
+            />
             <label htmlFor='companyName'>Company Name: </label>
             <input type='text'
                 placeholder='Company Name'
@@ -47,7 +48,7 @@ export const AddProduct = () => {
                 id='companyName'
                 value={companyName}
                 onChange={event => setCompanyName(event.target.value)}
-            /><br />
+            />
             <label htmlFor='dosageForm'>Dosage Form: </label>
             <input type='text'
                 placeholder='Dosage Form'
@@ -55,7 +56,7 @@ export const AddProduct = () => {
                 id='dosageForm'
                 value={dosageForm}
                 onChange={event => setdosageForm(event.target.value)}
-            /><br />
+            />
             <label htmlFor='strength'>Strength : </label>
             <input type='text'
                 placeholder='Strength'
@@ -63,7 +64,7 @@ export const AddProduct = () => {
                 id='strength'
                 value={strength}
                 onChange={event => setStrength(event.target.value)}
-            /><br />
+            />
             <label htmlFor='packSize'>Pack Size: </label>
             <input type='text'
                 placeholder='pack Size'
@@ -71,7 +72,7 @@ export const AddProduct = () => {
                 id='packSize'
                 value={packSize}
                 onChange={event => setPackSize(event.target.value)}
-            /><br />
+            />
             <label htmlFor='unitPrice'>Unit Price: </label>
             <input type='text'
                 placeholder='Unit Price'
@@ -79,7 +80,7 @@ export const AddProduct = () => {
                 id='unitPrice'
                 value={unitPrice}
                 onChange={event => setUnitPrice(event.target.value)}
-            /><br />
+            />
             <label htmlFor='therapeuticClass'>Therapeutic Class: </label>
             <input type='text'
                 placeholder='Therapeutic Class'
@@ -88,7 +89,7 @@ export const AddProduct = () => {
                 value={therapeuticClass}
                 onChange={event => setTherapeuticClass(event.target.value)}
             /><br />
-            <button type="reset" value='reset'>RESET</button>
+            {/* <button type="reset" value='reset'>RESET</button> */}
             <button type="submit" value='submit'>SUBMIT</button>
         </form>
     )
