@@ -19,7 +19,14 @@ export const AddProduct = () => {
 
         try {
             const result = (await axios.post('/api/products/addproduct', newProduct)).data
-            console.log(result)
+            setGenericName('')
+            setBrandName('')
+            setCompanyName('')
+            setdosageForm('')
+            setStrength('')
+            setPackSize('')
+            setUnitPrice('')
+            setTherapeuticClass('')
         } catch (error) { console.log(error) }
     }
     return (

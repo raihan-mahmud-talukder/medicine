@@ -7,7 +7,7 @@ const productSchema = mongoose.Schema({
     dosageForm: { type: String, required: true },
     strength: { type: String, required: true },
     packSize: { type: String, required: true },
-    unitPrice: { type: String, required: true },
+    unitPrice: { type: Number, required: true },
     therapeuticClass: { type: String, required: true },
 }, { timestamps: true })
 

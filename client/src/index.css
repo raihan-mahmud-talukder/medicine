@@ -75,7 +75,7 @@ table {
   text-align: center;
   margin: auto;
   border-collapse: separate;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   padding: 1rem;
 }
 
