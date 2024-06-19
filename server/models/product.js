@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const productSchema = mongoose.Schema({
-    genericName: { type: [String], required: true },
+    genericName: { type: String, required: true },
     brandName: { type: String, required: true },
     companyName: { type: String, required: true },
     dosageForm: { type: String, required: true },
