@@ -8,19 +8,19 @@ export const Products = () => {
 
     function dataSort(data) {
         let sortedData = data
-        
-        sortedData.forEach(element => {
-            
-            // element.genericName.sort((a, b) => {
-            //     let fa = a.toLowerCase().trim()
-            //     let fb = b.toLowerCase().trim()
-                
-            //     if (fa < fb) {
-            //         return -1
-            //     } else {
-            //         return 1
-            //     }
-            // })
+
+        sortedData.sort((a, b) => {
+            let fa = a.genericName.toLowerCase().trim()
+            let fb = b.genericName.toLowerCase().trim()
+
+            if (fa < fb) return -1
+            else if (fa > fb) return 1
+            else if (fa = fb) {
+                let doseA = a.dosageForm.toLowerCase().trim()
+                let doseB = b.dosageForm.toLowerCase().trim()
+                if (doseA < doseB) return -1
+                else return 1
+            } else return 0
         })
         return sortedData
     }
@@ -36,9 +36,7 @@ export const Products = () => {
         fetchData()
     }, [])
 
-
     // sortedData.sort((a, b) => { return a.unitPrice - b.unitPrice })
-
 
     return (
         <>
