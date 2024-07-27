@@ -74,7 +74,7 @@ export const AddProduct = () => {
             />
             <label htmlFor='packSize'>Pack Size: </label>
             <input type='text'
-                placeholder='pack Size'
+                placeholder='Pack Size'
                 required={true}
                 id='packSize'
                 value={packSize}

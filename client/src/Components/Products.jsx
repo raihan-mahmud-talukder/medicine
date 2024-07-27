@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import { data } from "../medicine"
 
 export const Products = () => {
     const [products, setProducts] = useState([])
@@ -12,12 +11,12 @@ export const Products = () => {
         sortedData.sort((a, b) => {
             let fa = a.genericName.toLowerCase().trim()
             let fb = b.genericName.toLowerCase().trim()
+            let doseA = a.dosageForm.toLowerCase().trim()
+            let doseB = b.dosageForm.toLowerCase().trim()
 
             if (fa < fb) return -1
             else if (fa > fb) return 1
             else if (fa = fb) {
-                let doseA = a.dosageForm.toLowerCase().trim()
-                let doseB = b.dosageForm.toLowerCase().trim()
                 if (doseA < doseB) return -1
                 else return 1
             } else return 0
@@ -35,8 +34,6 @@ export const Products = () => {
         }
         fetchData()
     }, [])
-
-    // sortedData.sort((a, b) => { return a.unitPrice - b.unitPrice })
 
     return (
         <>
