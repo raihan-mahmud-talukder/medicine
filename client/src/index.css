@@ -149,3 +149,17 @@ form button {
 form button:hover {
   color: black;
 }
+
+td button {
+  color: white;
+  /* background: yellowgreen; */
+  border: none;
+  padding: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+td button:active {
+  background: green;
+}

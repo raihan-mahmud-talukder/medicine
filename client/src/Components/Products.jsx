@@ -52,6 +52,7 @@ export const Products = () => {
                             <th>Pack Size</th>
                             <th>Unit Price</th>
                             <th>Therapeutic Class</th>
+                            <td>ADD</td>
                         </tr>
                         {products.map((product, index) => { return <Product product={product} key={product._id} index={index} /> })}
                     </tbody>
@@ -80,6 +81,7 @@ const Product = ({ product, index }) => {
             <td>{product.packSize}</td>
             <td>BDT {product.unitPrice.toFixed(2)}</td>
             <td>{product.therapeuticClass}</td>
+            <td><button>➕</button></td>
         </tr>
     )
 }
