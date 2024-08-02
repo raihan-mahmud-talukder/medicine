@@ -3,8 +3,24 @@ import axios from 'axios'
 
 export const Products = () => {
     const [products, setProducts] = useState([])
-    document.title = 'PRODUCTS'
 
+    const getLocalCartData = () => {
+        if (localStorage.getItem('cart') === null) {
+            return []
+        } else {
+            return JSON.parse(localStorage.getItem('cart'))
+        }
+    }
+
+    let cartProduct = getLocalCartData()
+
+    function addToCart(product) {
+        cartProduct.push(product)
+        localStorage.setItem('cart', JSON.stringify(cartProduct))
+        console.log(cartProduct)
+    }
+
+    document.title = 'PRODUCTS'
     function dataSort(data) {
         let sortedData = data
 
@@ -54,7 +70,7 @@ export const Products = () => {
                             <th>Therapeutic Class</th>
                             <td>ADD</td>
                         </tr>
-                        {products.map((product, index) => { return <Product product={product} key={product._id} index={index} /> })}
+                        {products.map((product, index) => { return <Product addToCartProp={addToCart} product={product} key={product._id} index={index} cart /> })}
                     </tbody>
                 </table>
             </div>
@@ -62,12 +78,11 @@ export const Products = () => {
     )
 }
 
-const Product = ({ product, index }) => {
-
+const Product = ({ product, index, addToCartProp }) => {
     const replaced = name => {
         if (name.includes(',')) {
             const changed = name.split(', ')
-            return changed.map(item => <div key={item}>{item}</div>)
+            return changed.map((item, index) => <div key={index}>{item}</div>)
         } else return name
     }
     return (
@@ -81,7 +96,7 @@ const Product = ({ product, index }) => {
             <td>{product.packSize}</td>
             <td>BDT {product.unitPrice.toFixed(2)}</td>
             <td>{product.therapeuticClass}</td>
-            <td><button>➕</button></td>
+            <td><button onClick={() => addToCartProp(product)}>➕</button></td>
         </tr>
     )
 }
