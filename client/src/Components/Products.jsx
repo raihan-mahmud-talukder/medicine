@@ -14,10 +14,12 @@ export const Products = () => {
 
     let cartProduct = getLocalCartData()
 
-    function addToCart(product) {
-        cartProduct.push(product)
-        localStorage.setItem('cart', JSON.stringify(cartProduct))
-        console.log(cartProduct)
+    const addToCart = product => {
+        if (!(cartProduct.includes(product))) {
+            console.log(!cartProduct.includes(product))
+            cartProduct.push(product)
+            localStorage.setItem('cart', JSON.stringify(cartProduct))
+        } else alert('Medicine has already been added to cart!')
     }
 
     document.title = 'PRODUCTS'
@@ -27,13 +29,13 @@ export const Products = () => {
         sortedData.sort((a, b) => {
             let fa = a.genericName.toLowerCase().trim()
             let fb = b.genericName.toLowerCase().trim()
-            let doseA = a.dosageForm.toLowerCase().trim()
-            let doseB = b.dosageForm.toLowerCase().trim()
+            let bA = a.brandName.toLowerCase().trim()
+            let bB = b.brandName.toLowerCase().trim()
 
             if (fa < fb) return -1
             else if (fa > fb) return 1
-            else if (fa = fb) {
-                if (doseA < doseB) return -1
+            else if (fa === fb) {
+                if (bA < bB) return -1
                 else return 1
             } else return 0
         })
@@ -68,7 +70,7 @@ export const Products = () => {
                             <th>Pack Size</th>
                             <th>Unit Price</th>
                             <th>Therapeutic Class</th>
-                            <td>ADD</td>
+                            <th>ADD</th>
                         </tr>
                         {products.map((product, index) => { return <Product addToCartProp={addToCart} product={product} key={product._id} index={index} cart /> })}
                     </tbody>

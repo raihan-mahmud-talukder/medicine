@@ -13,6 +13,14 @@ code {
     monospace;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* hiding increment arrow in number input */
+
 main {
   margin-top: 3rem;
   min-height: 95.1vh;
@@ -63,9 +71,12 @@ menu {
   margin: 0;
 }
 
-menu ul li a:hover,
-a.active {
+menu ul li a:hover {
   color: black;
+}
+
+a.active {
+  color: yellowgreen;
 }
 
 
@@ -73,14 +84,23 @@ h1 {
   text-align: center;
 }
 
+.products {
+  overflow-x: auto;
+}
+
 table {
   width: 100rem;
   text-align: center;
   margin: auto;
-  border-collapse: separate;
+  border-collapse: collapse;
   /* text-transform: uppercase; */
   /* padding: 1rem; */
   border: darkgray 1px solid;
+  margin-bottom: 10rem;
+}
+
+td {
+  border: 1px solid rgba(0, 0, 0, 0.226);
 }
 
 tr:nth-child(odd) {
@@ -162,4 +182,9 @@ td button {
 
 td button:active {
   background: green;
+}
+
+td input {
+  width: 1.5rem;
+  padding: 0;
 }
