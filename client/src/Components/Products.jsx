@@ -16,7 +16,6 @@ export const Products = () => {
 
     const addToCart = product => {
         if (!(cartProduct.includes(product))) {
-            console.log(!cartProduct.includes(product))
             cartProduct.push(product)
             localStorage.setItem('cart', JSON.stringify(cartProduct))
         } else alert('Medicine has already been added to cart!')
